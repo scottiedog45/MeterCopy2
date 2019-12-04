@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Application-Id: MeterSample
+Application-Version: 0.1.0
+Application-PrintableName: MeterSample
+Application-Description: MeterSample
+Application-IconsDirectory: icons
+Application-BackgroundServices: com.landisgyr.MeterSample.MeterSample
