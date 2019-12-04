@@ -3,3 +3,4 @@
 /.sonar
 /.DS_Store
 /bin
+*.properties
