@@ -2,6 +2,7 @@ language: jav
 jdk: 
   - oraclejdk9
 skip_cleanup: true
+install: ant resolve
 script: ant build
 branches:
   only:
