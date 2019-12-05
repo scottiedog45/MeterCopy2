@@ -1,7 +1,7 @@
-language: jav
+language: java
 jdk: 
   - oraclejdk9
-install: ant init build
+install: ant deps
 branches:
   only:
     - travis
