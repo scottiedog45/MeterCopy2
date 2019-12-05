@@ -5,6 +5,6 @@ Specification-Title: MeterSample
 Specification-Version: 0.1.0
 Specification-Vendor: com.landisgyr
 Implementation-Title: MeterSample
-Implementation-Version: 0.1.0-RC201912051150
+Implementation-Version: 0.1.0-RC201912051256
 Implementation-Vendor: com.landisgyr
 

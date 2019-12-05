@@ -4,7 +4,7 @@
 		module="MeterSample"
 		revision="0.1.0"
 		status="integration"
-		publication="20191205115024"
+		publication="20191205125707"
 	>
 		<description />
 		<ea:build organisation="com.is2t.easyant.buildtypes" module="build-application" revision="5.5.+">

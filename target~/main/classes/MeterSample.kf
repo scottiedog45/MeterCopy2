@@ -1,4 +1,4 @@
-#Thu Dec 05 11:50:21 EST 2019
+#Thu Dec 05 12:57:03 EST 2019
 version=0.1.0
 name=MeterSample
 types=com.landisgyr.lgap.simple.led.*,java.util.logging.*,ej.util.property.*,com.landisgyr.lgap.simple.uart.*,ej.basictool.*,ej.basictool.map.*,java.security.*,ej.components.*,ej.wadapps.property.*,ej.components.registry.util.*,ej.wadapps.management.*,ej.wadapps.registry.*,com.landisgyr.lgap.simple.gpio.*,org.eclipse.core.runtime.*,ej.components.dependencyinjection.*,com.landisgyr.lgap.simple.meter.*,com.landisgyr.lgap.epf.*,ej.components.dependencyinjection.util.*,java.lang.*,ej.junit.*,ej.io.progress.*,ej.wadapps.registry.util.*,ej.annotation.*,java.io.*,ej.components.registry.impl.*,java.lang.ref.*,__MeterSample__.generated.*,java.lang.annotation.*,java.lang.reflect.*,ej.observable.*,ej.components.registry.*,properties.*,com.landisgyr.MeterSample.*,java.util.*,ej.wadapps.admin.*,ej.wadapps.storage.*,org.junit.*,org.junit.internal.*,com.landisgyr.lgap.logging.*,com.landisgyr.lgap.simple.communication.*,icons.*,ej.util.logging.handler.*,ej.wadapps.app.*

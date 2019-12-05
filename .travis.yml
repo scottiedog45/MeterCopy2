@@ -1,6 +1,12 @@
 language: java
 jdk: 
   - oraclejdk9
+
+addons:
+  apt:
+    packages:
+      - ant
+      
 install: ant build
 branches:
   only:
