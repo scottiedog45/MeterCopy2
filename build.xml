@@ -116,8 +116,6 @@
             <src path="src/main/resources"/>
             <src path="src/test/java"/>
             <src path="src/test/resources"/>
-            <src path="src/.generated~/.java"/>
-            <src path="src/.generated~/.resources"/>
             <classpath refid="MeterSample.classpath"/>
         </javac>
     </target>
