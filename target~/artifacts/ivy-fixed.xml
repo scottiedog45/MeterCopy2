@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0" xmlns:ea="http://www.easyant.org" xmlns:m="http://ant.apache.org/ivy/maven">
+	<info organisation="com.landisgyr"
+		module="MeterSample"
+		revision="0.1.0"
+		status="integration"
+		publication="20191205110956"
+	>
+		<description />
+		<ea:build organisation="com.is2t.easyant.buildtypes" module="build-application" revision="5.5.+">
+			<ea:property name="test.run.includes.pattern" value="**/_AllTests_*.class"/>
+		</ea:build>
+	</info>
+	<configurations>
+		<conf name="default" visibility="public"/>
+		<conf name="provided" visibility="public"/>
+		<conf name="documentation" visibility="public"/>
+		<conf name="source" visibility="public"/>
+		<conf name="dist" visibility="public"/>
+		<conf name="test" visibility="public"/>
+	</configurations>
+	<publications>
+		<artifact name="MeterSample" type="jar" ext="jar" conf="default"/>
+		<artifact name="MeterSample" type="javadoc" ext="jar" conf="documentation" m:classifier="javadoc"/>
+		<artifact name="MeterSample" type="source" ext="jar" conf="source" m:classifier="sources"/>
+		<artifact name="MeterSample-build-meta" type="xml" ext="xml" conf="test"/>
+	</publications>
+	<dependencies>
+		<dependency org="ej.library.wadapps" name="framework" rev="1.7.2" force="true" transitive="false" conf="default->default;provided->provided"/>
+		<dependency org="ej.library.runtime" name="components" rev="3.2.3" force="true" transitive="false" conf="default->default;provided->provided"/>
+		<dependency org="ej.library.util" name="progress" rev="1.0.3" force="true" transitive="false" conf="default->default;provided->provided"/>
+		<dependency org="ej.library.eclasspath" name="properties" rev="1.0.1" force="true" transitive="false" conf="default->default;provided->provided"/>
+		<dependency org="ej.library.util" name="observable" rev="1.0.2" force="true" transitive="false" conf="default->default;provided->provided"/>
+		<dependency org="ej.library.runtime" name="property-loader" rev="3.0.1" force="true" transitive="false" conf="default->default;provided->provided"/>
+		<dependency org="ej.library.runtime" name="basictool" rev="1.2.2" force="true" transitive="false" conf="default->default;provided->provided"/>
+		<dependency org="ej.library.eclasspath" name="logging" rev="1.0.3" force="true" transitive="false" conf="default->default;provided->provided"/>
+		<dependency org="ej.library.runtime" name="annotation" rev="1.0.0" force="true" transitive="false" conf="default->default;provided->provided"/>
+		<dependency org="ej.library.eclasspath" name="bufferedstreams" rev="1.0.2" force="true" transitive="false" conf="default->default;provided->provided"/>
+		<dependency org="ej.library.eclasspath" name="printwriter" rev="1.0.3" force="true" transitive="false" conf="default->default;provided->provided"/>
+		<dependency org="ej.library.eclasspath" name="io" rev="1.0.1" force="true" transitive="false" conf="default->default;provided->provided"/>
+		<dependency org="ej.api" name="edc" rev="1.2.3" force="true" transitive="false" conf="test->default,provided,documentation,dist,source;provided->*"/>
+		<dependency org="ej.api" name="kf" rev="1.4.4" force="true" transitive="false" conf="provided->*"/>
+		<dependency org="ej.api" name="bon" rev="1.3.0" force="true" transitive="false" conf="provided->*"/>
+		<dependency org="ej.library.test" name="junit" rev="1.4.2" force="true" transitive="false" conf="test->*"/>
+		<dependency org="ej.library.eclasspath" name="collectionsutil" rev="1.0.2" force="true" transitive="false" conf="test->default,provided"/>
+		<dependency org="ej.library.eclasspath" name="collections" rev="1.2.0" force="true" transitive="false" conf="test->default,provided"/>
+		<dependency org="ej.tool.addon.test" name="junit-processor" rev="1.4.2" force="true" transitive="false" conf="test->addon-processor"/>
+	</dependencies>
+</ivy-module>
