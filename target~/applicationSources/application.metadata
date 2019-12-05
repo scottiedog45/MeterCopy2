@@ -1,9 +1,0 @@
-#Wed, 04 Dec 2019 15:21:21 -0500
-
-name=MeterSample
-version=0.1.0
-description=MeterSample
-osgi=false
-jar=MeterSample.jar,ej.library.wadapps-framework.jar,ej.library.runtime-components.jar,ej.library.runtime-basictool.jar,ej.library.runtime-annotation.jar,ej.library.eclasspath-logging.jar,ej.library.eclasspath-properties.jar,ej.library.eclasspath-bufferedstreams.jar,ej.library.eclasspath-io.jar,ej.library.eclasspath-printwriter.jar,ej.library.util-progress.jar,ej.library.util-observable.jar,ej.library.runtime-property-loader.jar,lgap.jar
-icon=icons/default_icon_144x144.png,icons/default_icon_16x16.png,icons/default_icon_32x32.png,icons/default_icon_48x48.png,icons/default_icon_64x64.png
-properties=application.properties

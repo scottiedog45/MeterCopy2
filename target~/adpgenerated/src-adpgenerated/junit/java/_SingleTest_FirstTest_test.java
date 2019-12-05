@@ -9,9 +9,9 @@ import org.junit.jupiter.api.Test;
 
 
 @SuppressWarnings("all")
-public class _AllTests_FirstTest extends AbstractTestWrapper {
+public class _SingleTest_FirstTest_test extends AbstractTestWrapper {
 
-	public _AllTests_FirstTest() {
+	public _SingleTest_FirstTest_test() {
 		super(FirstTest.class);
 	}
 
@@ -49,6 +49,6 @@ public class _AllTests_FirstTest extends AbstractTestWrapper {
 	}
 
 	public static void main(String[] args) {
-		new _AllTests_FirstTest().run(new CheckHelperTestListener());
+		new _SingleTest_FirstTest_test().run(new CheckHelperTestListener());
 	}	
 }
