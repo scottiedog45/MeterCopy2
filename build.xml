@@ -78,6 +78,7 @@
     <path id="run.FristTest.bootclasspath"/>
     <target name="init">
         <mkdir dir="bin"/>
+    	<mkdir dir="src/.generated~/.java" />
         <copy includeemptydirs="false" todir="bin">
             <fileset dir="src/main/java">
                 <exclude name="**/*.launch"/>
