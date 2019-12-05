@@ -3,7 +3,7 @@
 	<property name="easyant.buildtype" value="com.is2t.easyant.buildtypes#build-application;5.5.6" />
 	<property name="engine" value="${buildEngineId}" />
 	<property name="hostname" value="${buildEngineHostName}" />
-	<property name="label" value="20191205-1109" />
+	<property name="label" value="20191205-1150" />
 	<property name="repositoryAddress" value="${repositoryAddress}" />
 	<property name="requester" value="${buildRequesterUserId}" />
 </properties>

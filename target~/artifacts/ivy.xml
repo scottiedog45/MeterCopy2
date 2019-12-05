@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0" xmlns:ea="http://www.easyant.org" xmlns:m="http://ant.apache.org/ivy/maven">
-	<info organisation="com.landisgyr" module="MeterSample" revision="0.1.0-RC201912051109" status="integration" publication="20191205110956">
+	<info organisation="com.landisgyr" module="MeterSample" revision="0.1.0-RC201912051150" status="integration" publication="20191205115025">
 		<description/>
 		<ea:build organisation="com.is2t.easyant.buildtypes" module="build-application" revision="5.5.+">
 			<ea:property name="test.run.includes.pattern" value="**/_AllTests_*.class"/>
