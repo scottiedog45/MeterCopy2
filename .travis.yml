@@ -1,0 +1,7 @@
+language: jav
+jdk: 
+  - oraclejdk8
+script: and build
+branches:
+  only:
+    - travis

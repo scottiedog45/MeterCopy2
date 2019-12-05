@@ -1,0 +1,10 @@
+/*~
+/**/*~
+/.sonar
+/.DS_Store
+/bin
+/com.*
+*.properties
+*.sfo
+*.fodbg
+*.fo
