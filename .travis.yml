@@ -1,7 +1,7 @@
 language: jav
 jdk: 
   - oraclejdk9
-script: ant -verbose build
+script: ant -verbose debug
 branches:
   only:
     - travis
