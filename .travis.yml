@@ -1,6 +1,6 @@
 language: jav
 jdk: 
-  - oraclejdk8
+  - oraclejdk9
 script: and build
 branches:
   only:
