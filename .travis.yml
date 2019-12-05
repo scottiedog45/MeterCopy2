@@ -1,6 +1,7 @@
 language: jav
 jdk: 
   - oraclejdk9
+skip_cleanup: true
 script: ant build
 branches:
   only:

@@ -19,10 +19,5 @@
 	<classpathentry kind="con" path="org.apache.ivyde.eclipse.cpcontainer.IVYDE_CONTAINER/?project=MeterSample&amp;ivyXmlPath=module.ivy&amp;confs=*"/>
 	<classpathentry kind="lib" path="META-INF/libraries/lgap.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
-	<classpathentry kind="src" path="src-adpgenerated/junit/java">
-		<attributes>
-			<attribute name="addonProcessorKind" value="generatedJava"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
