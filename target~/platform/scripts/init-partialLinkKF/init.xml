@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ANT Buildfile
+ 
+  Copyright 2013-2017 IS2T. All rights reserved.
+  IS2T PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+-->
+<project name="partialLinkKFInit">
+
+	<!-- 
+		Generate link file for KF
+	-->
+
+	<import file="${scripts.dir}/extension-init.xml" />
+	<import file="${scripts.dir}/microejAntlib.xml" />
+		
+	<target name="initDefaultOptions" extensionOf="init/execution">
+		<!-- Default options if not set -->
+		<property name="apis.check.enable" value="true"/>
+		
+		<!-- Synchronize these values with KFConfiguration classe -->
+		<property name="kf.rule.ignored" value="1"/>
+		<property name="kf.rule.warning" value="2"/>
+		<property name="kf.rule.error" value="3"/>
+		<property name="kf.feature.call.within.kernel.monitor.mode" value="${kf.rule.ignored}"/>
+	</target>
+	
+	<target name="createLinkFileKF" extensionOf="init/execution" if="onBoard">
+		<!-- temporary link files -->
+		<local name="link.files.dir"/>
+		<microejtempfile deleteonexit="true" prefix="linkKF" property="link.files.dir"/>
+		<mkdir dir="${link.files.dir}"/>
+		
+		<local name="link.sizes"/>
+		<property name="link.sizes" value="${link.files.dir}/sizes.lscf" />
+		
+		<property name="core.memory.dynamic.features.size" value="16"/><!-- Number of dynamic features by default if not set -->
+		<property name="core.memory.feature.max.threads" value="10"/><!-- Number of maximum Feature threads by default if not set -->
+		<fail unless="core.memory.installed.features.max"/>
+		<fail unless="core.memory.installed.features.text.size"/>
+		<fail unless="core.memory.installed.features.bss.size"/>
+		
+		<!-- create the size file -->
+		<echoxml file="${link.sizes}" append="false">
+			<lscFragment>
+				<defSymbol name="_java_max_nb_dynamic_features" value="${core.memory.dynamic.features.size}" rootSymbol="true"/>
+				<defSymbol name="_java_max_nb_installed_features" value="${core.memory.installed.features.max}" rootSymbol="true"/>
+				<defSymbol name="${arch.symbol.prefix}_java_feature_max_nb_threads" value="${core.memory.feature.max.threads}" rootSymbol="true"/>
+				<defSymbol name="${arch.symbol.prefix}_java_installed_features_text_size" value="${core.memory.installed.features.text.size}" rootSymbol="true"/>
+				<defSymbol name="${arch.symbol.prefix}_java_installed_features_bss_size" value="${core.memory.installed.features.bss.size}" rootSymbol="true"/>
+
+				<!-- See linkSoarKF.lscf -->
+				<defSymbol name="_java_kf_rule_conf_feature_call_within_kernel_monitor" value="${kf.feature.call.within.kernel.monitor.mode}" rootSymbol="true"/>
+			</lscFragment>
+		</echoxml>
+		
+		<augment id="partialLink.lscf.path">
+			<path location="${link.files.dir}"/>
+		</augment>
+	</target>
+		
+</project>

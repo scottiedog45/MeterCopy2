@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ANT Buildfile
+ 
+  Copyright 2015-2018 IS2T. All rights reserved.
+  IS2T PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+-->
+<project name="fullLinkInit">
+	
+	<target name="init/context/fullLink" extensionOf="init/context" if="onBoard">
+		<path id="link.files"/> <!-- Object files to link -->
+		<resources id="fullLink.options"/> <!-- Options given to the GNU linker -->
+	
+		<property name="include.link.files" value="**/*.a,**/*.o"/>
+
+		<augment id="link.files">
+			<!-- Augment link files with platform libraries -->
+			<fileset dir="${platform.dir}/lib" includes="${include.link.files}"/>
+		</augment>
+	</target>
+	
+	<target name="init/finalization/fullLink" extensionOf="init/finalization" if="onBoard">
+		<pathconvert property="overall.native.libraries" pathsep=" " refid="link.files">
+			<globmapper from="*" to="'*'"/> <!-- Allow spaces in path by quoting it -->
+		</pathconvert>
+		<pathconvert property="overall.fullLink.options"  pathsep=" " refid="fullLink.options" />
+	</target>
+	
+</project>

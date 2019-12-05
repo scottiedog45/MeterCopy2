@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ANT Buildfile
+ 
+  Copyright 2014-2016 IS2T. All rights reserved.
+  IS2T PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+    	
+-->
+<project name="schedcontrol-init">
+
+	<import file="${scripts.dir}/extension-init.xml" />
+
+	<target name="init/schedcontrol" extensionOf="init/execution" if="execSOAR">
+		<augment id="init.soar.bootclasspath">
+			<fileset dir="${microjvm.dir}/javaLibs" includes="schedcontrol-*.jar" />
+		</augment>
+		
+		<augment id="init.requires">
+			<string value="com.is2t.schedcontrol.ScheduleController"/>
+		</augment>
+	</target>
+	
+</project>

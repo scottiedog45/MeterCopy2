@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="1" hostname="" ignored="0" name="MeterSample test" started="1" tests="1" time="5.213" timestamp="" triedAgain="0">
+<testcase classname="_AllTests_FirstTest" name="_AllTests_FirstTest" time="5.213">
+<failure><![CDATA[Unable to locate tools.jar. Expected to find it in C:\Program Files\Java\jre1.8.0_231\lib\tools.jar
+Buildfile: C:\Users\Stable Kernel\.ivy2\cache\com.is2t.easyant.plugins\microej-testsuite\xmls\microej-testsuite-harness-s3-3.3.0.xml
+
+traceAnalyzer/definition:
+
+runTest:
+    [mkdir] Created dir: C:\Users\Stable Kernel\Desktop\LandisGyr-MeterSample\target~\test\xml\test\20191204-1521-37\_AllTests_FirstTest\null822496360
+
+activity/microej:
+     [echo] =============== [ Initialization Stage ] ===============
+
+check/OS/job:
+
+isWinXP:
+
+check/OS:
+
+target/define:
+
+platform/constants:
+
+init/vd/embeded-applications:
+
+init/vd:
+
+init/workbench:
+
+context/dtls-impl:
+
+init/ecom/context/hook:
+
+init/ecom/check:
+
+context/fs-embedded-s3:
+
+context/fs-embedded:
+
+init/context/fullLink:
+
+init/hil/context:
+
+context/net-embedded:
+
+context/net-embedded-dns-native:
+
+context/net-embedded-s3:
+
+init/nls/check:
+
+init/context/partialLink:
+
+init/s3/check:
+
+init/s3/context:
+
+init/context/soar:
+
+context/ssl-embedded-s3:
+
+context/ssl:
+
+init/context:
+
+mkdirs/application:
+    [mkdir] Created dir: C:\Users\Stable Kernel\Desktop\LandisGyr-MeterSample\target~\test\xml\test\20191204-1521-37\bin\_AllTests_FirstTest
+    [mkdir] Created dir: C:\Users\Stable Kernel\Desktop\LandisGyr-MeterSample\target~\test\xml\test\20191204-1521-37\bin\_AllTests_FirstTest\externalResources
+
+nested.init/execution:
+
+resources:
+
+immutables:
+
+requires:
+
+classpath:
+
+buildProperties:
+
+init/application:
+
+init/bon/soar:
+
+init/bon/s3:
+
+init/s3/bon:
+
+init/bon/properties:
+
+init/bon:
+
+init/device.mock-sim:
+
+init/device.mock-sim/architecture/set:
+
+init/device.mock-sim/architecture:
+
+init/device.mock-sim/id/check:
+
+init/device.mock-sim/id:
+
+init/device:
+
+init/dtls-impl:
+
+init/ecom:
+
+init/ecom/eventpump:
+
+init/edc/soar:
+
+init/edc/s3:
+
+init/edc:
+
+init/firmware/s3:
+
+init/fs-embedded-s3/execution:
+
+init/fs/impl:
+
+init/fs-embedded-s3:
+
+init/hil:
+
+init/execution/icbLink/check:
+
+init/execution/icbLink:
+
+init/kf-dd:
+
+init/kf-dd/soar/embed:
+
+init/kf-dd/soar:
+
+init/kf/soar:
+
+init/kf/s3:
+
+init/lgap-mockup-s3:
+
+init/execution/linuxLink:
+
+init/net-embedded-dns-native:
+
+createLinkFileNetEmbeddedNetworkSettings:
+
+init/net-embedded-s3:
+
+init/net-embedded:
+
+definitions/nlsGen:
+
+activity/nlsGen:
+
+init/nlsGen:
+
+createLinkFileGT:
+
+createLinkFileJStackBlock:
+
+initDefaultOptions:
+
+createLinkFileKF:
+
+createLinkFileTrace:
+
+selectLinkFilePath:
+
+init/partialLink/watchdog:
+
+create/partialLink/watchdog:
+
+init/execution/partialLink:
+
+createLinkFile:
+
+resourceBufferGeneratorInit:run:
+    [mkdir] Created dir: C:\Users\Stable Kernel\Desktop\LandisGyr-MeterSample\target~\test\xml\test\20191204-1521-37\bin\_AllTests_FirstTest\resourceBuffer
+
+resourceBufferGeneratorInit:exec:
+
+init/resourcemanager:
+
+init/s3:
+
+init/schedcontrol:
+
+init/security-s3:
+
+init/soar:
+
+init/ssl-embedded-s3:
+
+init/ssl:
+
+init/testsuite:
+
+init/trace.mock-sim:
+
+init/watchdog:
+
+init/watchogmock-sim:
+
+init/execution:
+
+mkdirs/s3/bon:
+    [mkdir] Created dir: C:\Users\Stable Kernel\Desktop\LandisGyr-MeterSample\target~\test\xml\test\20191204-1521-37\bin\_AllTests_FirstTest\bon
+
+mkdirs/bon:
+
+heapdump.fs:
+
+heapdump.no.fs:
+
+logs.fs:
+
+no.logs.fs:
+
+cc.fs:
+
+mkdir/soar:
+
+launch/mkdirs:
+
+finalization/s3:
+
+properties/finalize:
+    [mkdir] Created dir: C:\Users\Stable Kernel\Desktop\LandisGyr-MeterSample\target~\test\xml\test\20191204-1521-37\_AllTests_FirstTest\null822496360\customlaunch878618430properties\properties
+
+collections/finalize:
+
+finalization/dtls-impl:
+
+init/finalization/fullLink:
+
+finalization/hil:
+
+finalization/net-embedded-dns-native:
+
+finalization/net-embedded-s3:
+
+finalization/net-embedded:
+
+init/finalization/partialLink:
+
+init/finalization/soar:
+
+finalization/ssl-embedded-s3:
+
+init/finalization:
+
+init:
+
+soarForS3:
+
+activity/s3:
+     [echo] =============== [ Launching on Simulator ] ===============
+
+s3/exec/impl:
+
+sleep.onWinXP:
+
+mainMock:
+     [java] OK: pass
+     [java] KO: fail Assertion failed
+     [java] Exception in thread "main" java.lang.AssertionError
+     [java] *at java.lang.Throwable.fillInStackTrace(Throwable.java:79)
+     [java] *at java.lang.Throwable.<init>(Throwable.java:25)
+     [java] *at java.lang.Error.<init>(Error.java:6)
+     [java] *at java.lang.AssertionError.<init>(AssertionError.java:6)
+     [java] *at org.junit.Assert.fail(Assert.java:90)
+     [java] *at org.junit.Assert.assertTrue(Assert.java:45)
+     [java] *at org.junit.Assert.assertTrue(Assert.java:56)
+     [java] *at FirstTest.fail(FirstTest.java:23)
+     [java] *at _AllTests_FirstTest._run_fail(_AllTests_FirstTest.java:56)
+     [java] *at _AllTests_FirstTest.runTestMethods(_AllTests_FirstTest.java:33)
+     [java] *at ej.junit.AbstractTestWrapper.wrapperRunTestMethods(AbstractTestWrapper.java:216)
+     [java] *at ej.junit.AbstractTestWrapper.run(AbstractTestWrapper.java:238)
+     [java] *at _AllTests_FirstTest.main(_AllTests_FirstTest.java:69)
+     [java] *at java.lang.MainThread.run(Thread.java:836)
+     [java] *at java.lang.Thread.runWrapper(Thread.java:372)
+     [java] FAILED: 1 failures, 0 errors, out of 2 runs.
+
+s3/exec:
+
+launch/clean:
+
+activity/microej/finish:
+     [echo] =============== [ Completed Successfully ] ===============
+
+finish:
+
+s3:
+[traceAnalyzer:fileTraceAnalyzer] 1 : TraceAnalyzer ERROR :
+[traceAnalyzer:fileTraceAnalyzer] [M4] - Encountered failure tag.
+[traceAnalyzer:fileTraceAnalyzer] 
+
+BUILD FAILED
+C:\Users\Stable Kernel\.ivy2\cache\com.is2t.easyant.plugins\microej-testsuite\xmls\microej-testsuite-harness-s3-3.3.0.xml:44: TraceAnalyzer ends with errors.
+
+Total time: 3 seconds
+]]></failure>
+</testcase>
+</testsuite>

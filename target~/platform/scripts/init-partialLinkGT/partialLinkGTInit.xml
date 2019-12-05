@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  	ANT
+ 
+  	Copyright 2013-2017 IS2T. All rights reserved.
+	Modification and distribution is permitted under certain conditions.
+  	IS2T PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+-->
+<project name="partialLinkGTInit">
+
+	<!-- 
+		Generate link file for GreenThread VM
+	-->
+
+	<import file="${ant.file.partialLinkGTInit}/../../extension-init.xml" />
+	<import file="${ant.file.partialLinkGTInit}/../../microejAntlib.xml" />
+		
+	<target name="createLinkFileGT" extensionOf="init/execution" if="onBoard">
+		<!-- temporary link files -->
+		<local name="link.files.dir"/>
+		<microejtempfile deleteonexit="true" prefix="linkGT" property="link.files.dir"/>
+		<mkdir dir="${link.files.dir}"/>
+		
+		<!-- Try to load a MJVM configuration from a properties file defined in the scripts -->
+		<property file="${scripts.dir}/mjvm.properties"/>
+		
+		<local name="link.sizes"/>
+		<property name="link.sizes" value="${link.files.dir}/sizes.lscf" />
+
+		<property name="core.memory.thread.max.nb.monitors" value="8" /> <!-- By default if not set -->
+		<property name="core.sni.nonimmortal.access" value="false"/> <!-- By default if not set -->
+		
+		<!-- 
+			Symbol==2 means SNI can access non-immortal objects, Symbol!=2 means SNI cannot access non-immortal objects.
+			See GreenThreadExternSymbols class.
+		 -->
+		<condition property="core.sni.nonimmortal.access.symbol.value" value="2" else="1">
+			<istrue value="${core.sni.nonimmortal.access}"/>
+		</condition>
+		
+		<fail unless="arch.symbol.prefix" message="Please define the 'arch.symbol.prefix' property"/>
+		
+		<!-- create the size file -->
+		<echoxml file="${link.sizes}" append="false">
+			<lscFragment>
+				<defSymbol name="${arch.symbol.prefix}_java_max_nb_standaloneEngines" value="${core.memory.threads.size}" rootSymbol="true"/>
+				<defSymbol name="${arch.symbol.prefix}_java_max_nb_monitors_per_thread" value="${core.memory.thread.max.nb.monitors}" rootSymbol="true"/>
+				<defSymbol name="${arch.symbol.prefix}_java_sni_can_access_non_immortal_object" value="${core.sni.nonimmortal.access.symbol.value}" rootSymbol="true"/>
+			</lscFragment>
+		</echoxml>
+		
+		<augment id="partialLink.lscf.path">
+			<path location="${link.files.dir}"/>
+		</augment>
+	</target>
+		
+</project>

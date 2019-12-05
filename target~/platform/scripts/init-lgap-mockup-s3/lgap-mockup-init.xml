@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	ANT
+	
+	Copyright 2018 IS2T. All rights reserved.
+	This library is provided in source code for use, modification and test, subject to license terms.
+	Any modification of the source code will break IS2T warranties on the whole library.
+-->
+<project name="lgap-mockup-s3-init">
+
+	<import file="${scripts.dir}/extension-init.xml" />
+
+	<!-- Add the mockup JAR in the simulator classpath. -->
+	<target name="init/lgap-mockup-s3" extensionOf="init/execution" if="onS3">
+		<augment id="hil.main.classpath">
+			<fileset dir="${platform.dir}/mocks" includes="mocklgap-mockup.jar"/>
+		</augment>
+	</target>
+
+</project>

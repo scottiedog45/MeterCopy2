@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ANT Buildfile
+ 
+  Copyright 2013-2017 IS2T. All rights reserved.
+  IS2T PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+-->
+<project name="emb.dynamic.feature.intern" default="board" xmlns:tools="antlib:com.is2t.elf.tool.stripper">
+
+	<!-- Input properties -->
+	<fail unless="kernel.filename"/>
+	<fail unless="application.main.class"/>
+	<fail unless="output.dir"/>
+	<fail unless="platform.dir"/>
+
+	<import file="init.xml"/>
+	
+	<property name="scripts.dir" location="${platform.dir}/scripts"/>
+	<property name="tools.dir" location="${platform.dir}/tools"/>
+	<loadproperties srcfile="${scripts.dir}/core.properties"/>
+
+	<loadproperties srcfile="${scripts.dir}/soar.properties" prefix="soar"/>
+	<path id="soar.classpath.path">
+		<fileset dir="${microjvm.dir}/soar" includes="dynSOAR.jar"/>
+		<fileset dir="${microjvm.dir}/soar" includes="bytecodeVerifier*.jar"/>
+		<fileset dir="${microjvm.dir}/soar" includes="bcel*.jar"/>
+	</path>
+	<taskdef name="soarTask" classname="${soar.classname}" classpathref="soar.classpath.path"/>
+	
+	
+	<import file="${scripts.dir}/partialLinkDefinition.xml"/>	
+	<import file="activity.xml"/>
+	<taskdef uri="antlib:com.is2t.elf.tool.stripper" resource="com/is2t/elf/tool/stripper/antlib.xml" classpath="${tools.dir}/elfStripper.jar"/>
+	
+	<target name="activity/soar">
+		<start.subactivity
+			activity.id="${soar.activity.id}"
+			message="${soar.activity.msg}"
+			parent.activity.id="${activity.root.id}"
+		/>
+	</target>
+	
+	<!--
+		feature.output.name & feature.deploy.file are used by other launches.
+		feature.output.name must be the real name of the builded feature.
+		feature.deploy.file must be the absolute path of the builded feature.
+	-->
+	<target name="mkdirs/feature">
+		<property name="feature.extrafiles.output.dir" value="${application.output.dir}/feature"/>
+		<property name="feature.output.basename" value="${application.main.class}"/>
+		
+		<basename property="feature.output.basename.without.ext" file="${feature.output.basename}" suffix=".fo"/>
+		<property name="feature.output.name" value="${feature.output.basename.without.ext}.fo"/>
+		<property name="featuredebug.output.name" value="${feature.output.basename.without.ext}.fodbg"/>
+		<property name="feature.deploy.file" value="${application.output.dir}/${feature.output.name}"/>
+		<property name="feature.debug.file" value="${application.output.dir}/${featuredebug.output.name}"/>
+		<property name="feature.map.file" value="${application.output.dir}/${feature.output.basename.without.ext}.map"/>
+		<mkdir dir="${feature.extrafiles.output.dir}"/>	
+	</target>
+	
+	<target name="soar" depends="mkdirs/feature,activity/soar">
+		<condition property="soar.verbose.level" value="info,load,link,error,warn" else="error">
+			<isset property="execution.verbose"/>
+		</condition>
+		<property name="soar.bytecode.verifier" value="false"/>
+		<soarTask
+			verbose="${soar.verbose.level}"
+			expertMode="true"
+			debugMode="true"
+			mainClass="EMPTY"
+			rootname="feature_soar"
+			kernelFilename="${kernel.filename}"
+			toDir="${feature.extrafiles.output.dir}"
+			cpuVariant="${compiler.cpu}"
+			endianness="${arch.endianness}"
+			symbolPrefix="${arch.symbol.prefix}"
+			floatingRepresentation="${decimal.impl}"
+			checkAPIs="true"
+			toAddInVmImage="${overall.requires}"
+			immutables="${overall.immutables}"
+			resources="${overall.resources}"
+			verify="${soar.bytecode.verifier}"
+		>
+			<classpath>				
+				<path path="${overall.classpath}"/>
+			</classpath>
+		</soarTask>
+	</target>
+	
+	<target name="clean" extensionOf="launch/clean" if="clean.extrafiles">
+		<delete dir="${feature.extrafiles.output.dir}" failonerror="false"/>
+	</target>
+	
+	<target name="strip" depends="link">		
+		<tools:elfStripper
+			inputfile="${feature.extrafiles.output.dir}/${feature.output.name}.o" 
+			outputfile="${feature.extrafiles.output.dir}/${feature.output.name}_s.o"
+			keepSymbols="${arch.symbol.prefix}_java_signature_start,${arch.symbol.prefix}_java_kernel_signature_start,${arch.symbol.prefix}_java_header_types_start,${arch.symbol.prefix}_java_features_start"
+			actions="removeDebugSections,removeUnusedSymbols,turnToLocalSymbols"
+		/>
+	</target>
+
+	<target name="deploy" depends="strip">		
+		<copy file="${feature.extrafiles.output.dir}/${feature.output.name}_s.o" tofile="${feature.deploy.file}"/>
+		<copy file="${feature.extrafiles.output.dir}/${feature.output.name}.o" tofile="${feature.debug.file}"/>
+		<copy file="${feature.extrafiles.output.dir}/${feature.output.name}.map" tofile="${feature.map.file}"/>
+	</target>
+	
+	<target name="link" depends="soar">
+		<!-- link to kernel: for streaming readers -->
+		<condition property="linker.verbose.level" value="1" else="0">
+			<isset property="execution.verbose"/>
+		</condition>
+		<condition property="linker.noWarning" value="true" else="false">
+			<not>
+				<isset property="execution.verbose"/>
+			</not>
+		</condition>
+		
+		<propertyset id="partialLink.generic.properties"/> <!-- Properties that will be given to the linker. They will be output in the map file -->
+		<!-- Add the partialLink properties -->
+		<local name="linkerPrefix"/>		
+		<property name="linkerPrefix" value="linkerPrefix."/>
+		<property name="jpf.dir" location="${platform.dir}"/>
+		<loadproperties srcfile="${platform.dir}/release.properties" prefix="${linkerPrefix}"/>
+		<augment id="partialLink.generic.properties">
+			<propertyref prefix="${linkerPrefix}"/>
+			<propertyref name="jpf.dir"/>
+			<globmapper from="${linkerPrefix}*" to="*"/>
+		</augment>
+		
+		<linkerTask
+			verboseLevel="${linker.verbose.level}"
+			noWarning="${linker.noWarning}"
+			sanityCheck="true"
+			linkPath="${vm.dir}/dynamicLink" 
+			toDir="${feature.extrafiles.output.dir}" 
+			endianness="${arch.endianness}"
+			symbolPrefix="${arch.symbol.prefix}"
+			convertToRela="${arch.convertToRela}"
+			outputName="${feature.output.name}"
+			partial="true"
+			generateElfForStreaming="true" 
+			outputArchitecture="SOAR"
+		>
+			<path location="${feature.extrafiles.output.dir}/feature_soar.o"/>
+			<extension name="KF">
+				<property name="kernel.filename" value="${kernel.filename}"/>
+			</extension>
+			<propertyset refid="partialLink.generic.properties"/>
+		</linkerTask>
+	</target>
+
+
+	
+	<!-- Workbench Entry point  -->
+	<target name="board" depends="dyninit,deploy,finish">
+	
+	</target>
+
+</project>

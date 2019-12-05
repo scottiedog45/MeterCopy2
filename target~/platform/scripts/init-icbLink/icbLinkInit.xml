@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ANT Buildfile
+ 
+  Copyright 2018 IS2T. All rights reserved.
+  IS2T PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+-->
+<project name="icbLinkInit">
+
+	<import file="${scripts.dir}/extension-init.xml" />
+	
+	<target name="init/execution/icbLink" depends="init/execution/icbLink/check" extensionOf="init/execution" if="icbLink.fullLink">
+		<augment id="fullLink.options">
+			<string value="-lcycurlib -lssl -lcrypto"/>
+		</augment>
+	</target>
+	
+	<target name="init/execution/icbLink/check">
+		<condition property="icbLink.fullLink">
+			<and>
+				<isset property="onBoard"/>
+				<isreference refid="fullLink.options"/>
+			</and>
+		</condition>
+	</target>
+	
+</project>

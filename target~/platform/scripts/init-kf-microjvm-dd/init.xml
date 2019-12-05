@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ANT Buildfile
+ 
+  Copyright 2013-2017 IS2T. All rights reserved.
+  IS2T PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+-->
+<project name="kfInitMicroJvm-dd">
+
+	<import file="${scripts.dir}/extension-init.xml" />
+	
+	<!-- By default if no option provided -->
+	<property name="kf.dd.enabled" value="true"/>
+	<property name="com.is2t.kf.dynamic.loader" value="com.is2t.kf.DynamicFeatureLoader"/>
+	
+	<target name="init/kf-dd">
+		<condition property="kf.dd.soar.enabled" value="true" else="false">
+			<and>
+				<isset property="onBoard"/>
+				<isTrue value="${kf.dd.enabled}"/>
+			</and>
+		</condition>
+		
+		<loadproperties srcfile="${scripts.dir}/core.properties"/>
+		<fail unless="arch.symbol.prefix"/>
+		<property name="com.is2t.kf.symprefix" value="${arch.symbol.prefix}"/>
+	</target>
+		
+	<!-- Add dynamic download library in classpath if explicitly needed -->
+	<target name="init/kf-dd/soar" extensionOf="init/execution" depends="init/kf-dd, init/kf-dd/soar/embed">
+	</target>
+	
+	<target name="init/kf-dd/soar/embed" if="${kf.dd.soar.enabled}" depends="init/kf-dd">
+		<augment id="init.application.classpath">
+			<fileset dir="${microjvm.dir}/javaLibs">
+				<include name="kf-dd-*.jar"/>
+			</fileset>
+		</augment>
+		<augment id="init.properties">
+			<propertyRef name="com.is2t.kf.dynamic.loader"/>
+			<propertyRef name="com.is2t.kf.symprefix"/>
+		</augment>
+		<augment id="init.requires">
+			<string value="${com.is2t.kf.dynamic.loader}"/>
+		</augment>
+	</target>
+</project>

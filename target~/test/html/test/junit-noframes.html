@@ -1,0 +1,788 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html class="report" xmlns:lxslt="http://xml.apache.org/xslt" xmlns:stringutils="xalan://org.apache.tools.ant.util.StringUtils">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title> &bull; Testsuite Results</title>
+<style type="text/css">
+@charset "UTF-8";
+
+/*
+ CSS
+
+ Copyright 2013-2018 IS2T. All rights reserved.
+ IS2T PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+*/
+
+
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: sans-serif;
+}
+
+.report {
+	background: #b9cbe0;
+}
+
+.report-body {
+	margin: 20px;
+	padding: 20px;
+	border-left: 5px solid #293f87;
+	background-color: white;
+	background-image: none;
+	background-repeat: no-repeat;
+	background-position: top right;
+	box-shadow: 0 0 10px 10px rgba(0,0,0,.25);
+}
+
+a {
+	color: black;
+	border-bottom: 1px dotted #01679a;
+	text-decoration: none;
+	
+	-webkit-transition: all 0.25s;
+	-moz-transition: all 0.25s;
+	transition: all 0.25s;
+}
+
+a:hover {
+	color: #555;
+	border-bottom-style: solid;
+}
+
+hr {
+	width: 80%;
+	border: 0 none;
+	border-bottom: 1px solid #293f87;
+	margin: 10px auto;
+}
+
+.note {
+	border-left: 5px solid #b9cbe0;
+	background-color: #edf2ff;
+	padding: 3px;
+	padding-left: 10px;
+}
+
+code {
+	text-transform: none;
+}
+
+.status {
+}
+
+.error {
+	background-color: #ffad80;
+}
+
+.failure {
+	background-color: #ffa6a6;
+}
+
+.success {
+	background-color: #a6ffa6;
+}
+
+.ignored {
+	background-color: #dbdbf0;
+}
+
+.triedAgain {
+	background-color: #f0dbdb;
+}
+
+pre {
+	white-space: pre-wrap;
+}
+
+table {
+	width: 100%;
+	margin: 1em;
+	border-collapse: collapse;
+	border: 1px solid black;
+}
+
+td,
+th {
+	border: 1px solid #293f87;
+	padding: 3px;
+	vertical-align: top;
+}
+
+th {
+	background: #b9cbe0;
+}
+
+            </style>
+</head>
+<body class="report-body" id="top">
+<h1>Testsuite Results: </h1>
+<h2>Summary</h2>
+<table class="details">
+<thead>
+<tr>
+<th>Tests</th><th>Failures</th><th>Errors</th><th>Ignored</th><th>Tried Again</th><th>Success rate</th><th>Time</th>
+</tr>
+</thead>
+<tr>
+<td>1</td><td class="status failure">1</td><td class="">0</td><td class="">0</td><td class="">0</td><td class="">0.00%</td><td>5.213</td>
+</tr>
+</table>
+<table class="details">
+<thead>
+<tr>
+<th>Assertions</th><th>Failures</th><th>Success</th><th>Success Rate</th>
+</tr>
+</thead>
+<tr>
+<td>0</td><td class="">0</td><td>0</td><td class="">NaN</td>
+</tr>
+</table>
+<p class="note">Note: <em class="status failure">failures</em> are anticipated and checked for with assertions while <em class="status error">errors</em> are unanticipated. </p>
+<p class="note">Note: <em class="status ignored">ignored</em> tests are executed but not counted on the success rate. </p>
+<p class="note">Note: <em class="status triedAgain">tried again</em> tests are executed but not counted on the success rate. </p>
+<hr>
+<h2>Packages</h2>
+<p class="note">Note: package statistics are not computed recursively, they only sum up all of its testsuites numbers.</p>
+<table class="details">
+<tr>
+<th width="70%">Name</th><th>Tests</th><th>Errors</th><th>Failures</th><th>Ignored</th><th>Tried Again</th><th nowrap>Time(s)</th><th nowrap>Time Stamp</th><th>Host</th>
+</tr>
+<tr>
+<td><a href="#"><code></code></a></td><td>1</td><td class="">0</td><td class="status failure">1</td><td class="">0</td><td class="">0</td><td>5.213</td><td>1575490897354</td><td>local</td>
+</tr>
+</table>
+<hr>
+<h3 id="">Package <code></code>
+</h3>
+<table class="details">
+<tr>
+<th width="70%">Name</th><th>Tests</th><th>Errors</th><th>Failures</th><th>Ignored</th><th>Tried Again</th><th nowrap>Time(s)</th><th nowrap>Time Stamp</th><th>Host</th>
+</tr>
+<tr>
+<td><a href="#_AllTests_FirstTest"><code>_AllTests_FirstTest</code></a></td><td>1</td><td class="">0</td><td class="status failure">1</td><td class="">0</td><td class="">0</td><td>5.213</td><td>1575490897354</td><td>local</td>
+</tr>
+</table>
+<a href="#top">Back to top</a>
+<hr>
+<h3 id="_AllTests_FirstTest">TestCase _AllTests_FirstTest</h3>
+<table class="details">
+<tr>
+<th>Name</th><th>Status</th><th width="80%">Type</th><th nowrap>Time(s)</th>
+</tr>
+<tr>
+<td><code>_AllTests_FirstTest</code></td><td class="status failure">Failure</td><td>N/A<pre>
+<code>Unable to locate tools.jar. Expected to find it in C:\Program Files\Java\jre1.8.0_231\lib\tools.jar
+
+Buildfile: C:\Users\Stable Kernel\.ivy2\cache\com.is2t.easyant.plugins\microej-testsuite\xmls\microej-testsuite-harness-s3-3.3.0.xml
+
+
+
+traceAnalyzer/definition:
+
+
+
+runTest:
+
+    [mkdir] Created dir: C:\Users\Stable Kernel\Desktop\LandisGyr-MeterSample\target~\test\xml\test\20191204-1521-37\_AllTests_FirstTest\null822496360
+
+
+
+activity/microej:
+
+     [echo] =============== [ Initialization Stage ] ===============
+
+
+
+check/OS/job:
+
+
+
+isWinXP:
+
+
+
+check/OS:
+
+
+
+target/define:
+
+
+
+platform/constants:
+
+
+
+init/vd/embeded-applications:
+
+
+
+init/vd:
+
+
+
+init/workbench:
+
+
+
+context/dtls-impl:
+
+
+
+init/ecom/context/hook:
+
+
+
+init/ecom/check:
+
+
+
+context/fs-embedded-s3:
+
+
+
+context/fs-embedded:
+
+
+
+init/context/fullLink:
+
+
+
+init/hil/context:
+
+
+
+context/net-embedded:
+
+
+
+context/net-embedded-dns-native:
+
+
+
+context/net-embedded-s3:
+
+
+
+init/nls/check:
+
+
+
+init/context/partialLink:
+
+
+
+init/s3/check:
+
+
+
+init/s3/context:
+
+
+
+init/context/soar:
+
+
+
+context/ssl-embedded-s3:
+
+
+
+context/ssl:
+
+
+
+init/context:
+
+
+
+mkdirs/application:
+
+    [mkdir] Created dir: C:\Users\Stable Kernel\Desktop\LandisGyr-MeterSample\target~\test\xml\test\20191204-1521-37\bin\_AllTests_FirstTest
+
+    [mkdir] Created dir: C:\Users\Stable Kernel\Desktop\LandisGyr-MeterSample\target~\test\xml\test\20191204-1521-37\bin\_AllTests_FirstTest\externalResources
+
+
+
+nested.init/execution:
+
+
+
+resources:
+
+
+
+immutables:
+
+
+
+requires:
+
+
+
+classpath:
+
+
+
+buildProperties:
+
+
+
+init/application:
+
+
+
+init/bon/soar:
+
+
+
+init/bon/s3:
+
+
+
+init/s3/bon:
+
+
+
+init/bon/properties:
+
+
+
+init/bon:
+
+
+
+init/device.mock-sim:
+
+
+
+init/device.mock-sim/architecture/set:
+
+
+
+init/device.mock-sim/architecture:
+
+
+
+init/device.mock-sim/id/check:
+
+
+
+init/device.mock-sim/id:
+
+
+
+init/device:
+
+
+
+init/dtls-impl:
+
+
+
+init/ecom:
+
+
+
+init/ecom/eventpump:
+
+
+
+init/edc/soar:
+
+
+
+init/edc/s3:
+
+
+
+init/edc:
+
+
+
+init/firmware/s3:
+
+
+
+init/fs-embedded-s3/execution:
+
+
+
+init/fs/impl:
+
+
+
+init/fs-embedded-s3:
+
+
+
+init/hil:
+
+
+
+init/execution/icbLink/check:
+
+
+
+init/execution/icbLink:
+
+
+
+init/kf-dd:
+
+
+
+init/kf-dd/soar/embed:
+
+
+
+init/kf-dd/soar:
+
+
+
+init/kf/soar:
+
+
+
+init/kf/s3:
+
+
+
+init/lgap-mockup-s3:
+
+
+
+init/execution/linuxLink:
+
+
+
+init/net-embedded-dns-native:
+
+
+
+createLinkFileNetEmbeddedNetworkSettings:
+
+
+
+init/net-embedded-s3:
+
+
+
+init/net-embedded:
+
+
+
+definitions/nlsGen:
+
+
+
+activity/nlsGen:
+
+
+
+init/nlsGen:
+
+
+
+createLinkFileGT:
+
+
+
+createLinkFileJStackBlock:
+
+
+
+initDefaultOptions:
+
+
+
+createLinkFileKF:
+
+
+
+createLinkFileTrace:
+
+
+
+selectLinkFilePath:
+
+
+
+init/partialLink/watchdog:
+
+
+
+create/partialLink/watchdog:
+
+
+
+init/execution/partialLink:
+
+
+
+createLinkFile:
+
+
+
+resourceBufferGeneratorInit:run:
+
+    [mkdir] Created dir: C:\Users\Stable Kernel\Desktop\LandisGyr-MeterSample\target~\test\xml\test\20191204-1521-37\bin\_AllTests_FirstTest\resourceBuffer
+
+
+
+resourceBufferGeneratorInit:exec:
+
+
+
+init/resourcemanager:
+
+
+
+init/s3:
+
+
+
+init/schedcontrol:
+
+
+
+init/security-s3:
+
+
+
+init/soar:
+
+
+
+init/ssl-embedded-s3:
+
+
+
+init/ssl:
+
+
+
+init/testsuite:
+
+
+
+init/trace.mock-sim:
+
+
+
+init/watchdog:
+
+
+
+init/watchogmock-sim:
+
+
+
+init/execution:
+
+
+
+mkdirs/s3/bon:
+
+    [mkdir] Created dir: C:\Users\Stable Kernel\Desktop\LandisGyr-MeterSample\target~\test\xml\test\20191204-1521-37\bin\_AllTests_FirstTest\bon
+
+
+
+mkdirs/bon:
+
+
+
+heapdump.fs:
+
+
+
+heapdump.no.fs:
+
+
+
+logs.fs:
+
+
+
+no.logs.fs:
+
+
+
+cc.fs:
+
+
+
+mkdir/soar:
+
+
+
+launch/mkdirs:
+
+
+
+finalization/s3:
+
+
+
+properties/finalize:
+
+    [mkdir] Created dir: C:\Users\Stable Kernel\Desktop\LandisGyr-MeterSample\target~\test\xml\test\20191204-1521-37\_AllTests_FirstTest\null822496360\customlaunch878618430properties\properties
+
+
+
+collections/finalize:
+
+
+
+finalization/dtls-impl:
+
+
+
+init/finalization/fullLink:
+
+
+
+finalization/hil:
+
+
+
+finalization/net-embedded-dns-native:
+
+
+
+finalization/net-embedded-s3:
+
+
+
+finalization/net-embedded:
+
+
+
+init/finalization/partialLink:
+
+
+
+init/finalization/soar:
+
+
+
+finalization/ssl-embedded-s3:
+
+
+
+init/finalization:
+
+
+
+init:
+
+
+
+soarForS3:
+
+
+
+activity/s3:
+
+     [echo] =============== [ Launching on Simulator ] ===============
+
+
+
+s3/exec/impl:
+
+
+
+sleep.onWinXP:
+
+
+
+mainMock:
+
+     [java] OK: pass
+
+     [java] KO: fail Assertion failed
+
+     [java] Exception in thread "main" java.lang.AssertionError
+
+     [java] *at java.lang.Throwable.fillInStackTrace(Throwable.java:79)
+
+     [java] *at java.lang.Throwable.<init>(Throwable.java:25)
+
+     [java] *at java.lang.Error.<init>(Error.java:6)
+
+     [java] *at java.lang.AssertionError.<init>(AssertionError.java:6)
+
+     [java] *at org.junit.Assert.fail(Assert.java:90)
+
+     [java] *at org.junit.Assert.assertTrue(Assert.java:45)
+
+     [java] *at org.junit.Assert.assertTrue(Assert.java:56)
+
+     [java] *at FirstTest.fail(FirstTest.java:23)
+
+     [java] *at _AllTests_FirstTest._run_fail(_AllTests_FirstTest.java:56)
+
+     [java] *at _AllTests_FirstTest.runTestMethods(_AllTests_FirstTest.java:33)
+
+     [java] *at ej.junit.AbstractTestWrapper.wrapperRunTestMethods(AbstractTestWrapper.java:216)
+
+     [java] *at ej.junit.AbstractTestWrapper.run(AbstractTestWrapper.java:238)
+
+     [java] *at _AllTests_FirstTest.main(_AllTests_FirstTest.java:69)
+
+     [java] *at java.lang.MainThread.run(Thread.java:836)
+
+     [java] *at java.lang.Thread.runWrapper(Thread.java:372)
+
+     [java] FAILED: 1 failures, 0 errors, out of 2 runs.
+
+
+
+s3/exec:
+
+
+
+launch/clean:
+
+
+
+activity/microej/finish:
+
+     [echo] =============== [ Completed Successfully ] ===============
+
+
+
+finish:
+
+
+
+s3:
+
+[traceAnalyzer:fileTraceAnalyzer] 1 : TraceAnalyzer ERROR :
+
+[traceAnalyzer:fileTraceAnalyzer] [M4] - Encountered failure tag.
+
+[traceAnalyzer:fileTraceAnalyzer] 
+
+
+
+BUILD FAILED
+
+C:\Users\Stable Kernel\.ivy2\cache\com.is2t.easyant.plugins\microej-testsuite\xmls\microej-testsuite-harness-s3-3.3.0.xml:44: TraceAnalyzer ends with errors.
+
+
+
+Total time: 3 seconds
+
+</code>
+</pre>
+</td><td>5.213</td>
+</tr>
+</table>
+<a href="#top">Back to top</a>
+</body>
+</html>
