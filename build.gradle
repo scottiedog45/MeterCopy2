@@ -42,11 +42,7 @@ dependencies {
 
 //adding this runs junit tests with gradle
 
-test {
-    useJUnitPlatform()
-    
-    dependsOn 'cleanTest'
-}
+
 
 //for CI build scan
 
