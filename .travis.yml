@@ -1,5 +1,5 @@
 language: java
-install: gradle wrapper --gradle-version 4.2
+install: true
 
 os: linux
 dist: trusty
@@ -8,7 +8,7 @@ jdk: oraclejdk8
 script: bash scripts/test.sh
 
 before_install:
-  gradle wrapper
+  gradle wrapper --gradle-version 6.0.1
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
