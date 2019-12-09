@@ -5,7 +5,7 @@
               directory with the processing instruction <?eclipse.ant.import?>
               as the first entry and export the buildfile again. --><project basedir="." default="build" name="MeterSample">
     <property environment="env"/>
-    <property name="ECLIPSE_HOME" value="C:/Program Files/LandisGyr/LandisGyr-Studio-4.1.6/rcp/"/>
+    <property name="ECLIPSE_HOME" value="../../../../Program Files/LandisGyr/LandisGyr-Studio-4.1.6/rcp/"/>
     <property name="junit.output.dir" value="junit"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.7"/>
@@ -78,8 +78,6 @@
     <path id="run.FristTest.bootclasspath"/>
     <target name="init">
         <mkdir dir="bin"/>
-    	<mkdir dir="src/.generated~/.java" />
-    	<mkdir dir="src/.generated~/.resources" />
         <copy includeemptydirs="false" todir="bin">
             <fileset dir="src/main/java">
                 <exclude name="**/*.launch"/>
@@ -98,13 +96,13 @@
                 <exclude name="**/*.java"/>
             </fileset>
         </copy>
-        <copy includeemptydirs="true" todir="bin">
+        <copy includeemptydirs="false" todir="bin">
             <fileset dir="src/test/resources">
                 <exclude name="**/*.launch"/>
                 <exclude name="**/*.java"/>
             </fileset>
         </copy>
-        <copy includeemptydirs="true" todir="bin">
+        <copy includeemptydirs="false" todir="bin">
             <fileset dir="src/.generated~/.java">
                 <exclude name="**/*.launch"/>
                 <exclude name="**/*.java"/>
@@ -136,6 +134,19 @@
         </javac>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
     <target name="(default package)">
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
