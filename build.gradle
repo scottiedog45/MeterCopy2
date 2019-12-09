@@ -31,6 +31,7 @@ allprojects {
 }
 
 dependencies {
+    implementation files('./META-INF/libraries/lgap.jar')
     compile group: 'ej.api', name: 'kf', version: '1.4.4'
     compile group: 'ej.library.wadapps', name: 'framework', version: '1.7.2'
     compile group: 'ej.library.runtime', name: 'basictool', version: '1.2.2'
@@ -41,12 +42,16 @@ dependencies {
 
 //adding this runs junit tests with gradle
 
-
+test {
+    useJUnitPlatform()
+}
 
 //for CI build scan
 
-buildScan {
-    termsOfServiceUrl = "https://gradle.com/terms-of-service"
-    termsOfServiceAgree = "yes"
+if (hasProperty('buildScan')) {
+    buildScan {
+        termsOfServiceUrl = 'https://gradle.com/terms-of-service'
+        termsOfServiceAgree = 'yes'
+    }
 }
 
