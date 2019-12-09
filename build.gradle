@@ -55,3 +55,7 @@ if (hasProperty('buildScan')) {
     }
 }
 
+task wrapper(type: Wrapper) {
+    gradleVersion = '6.0.1'
+}
+
