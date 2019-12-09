@@ -1,2 +1,2 @@
 gradle wrapper
-./gradlew build --scan -s
+./gradle/wrapper build --scan -s
