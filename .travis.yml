@@ -5,21 +5,14 @@ os: linux
 dist: trusty
 jdk: oraclejdk8
 
-script: bash scripts/test.sh
-
 before_install:
-
-  - echo $PATH
   - rm -f  $HOME/.gradle/caches
-  - gradle -v --debug
   - wget http://services.gradle.org/distributions/gradle-6.0.1-bin.zip
   - unzip -qq gradle-6.0.1-bin.zip
   - export GRADLE_HOME=$PWD/gradle-6.0.1
   - export PATH=$GRADLE_HOME/bin:$PATH
-  - echo $PATH
-  - gradle -v --debug
 
-install: true
+script: bash scripts/test.sh
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
