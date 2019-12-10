@@ -30,7 +30,6 @@ allprojects {
 
 repositories {
 	mavenCentral()
-	jcenter()
 }
 
 dependencies {
@@ -46,7 +45,7 @@ dependencies {
 //adding this runs junit tests with gradle
 
 test {
-
+	
 	
 	dependsOn 'cleanTest'
 	
