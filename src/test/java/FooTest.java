@@ -15,7 +15,7 @@ class FooTest {
 
 	@Test
 	void test() {
-		Assertions.assertTrue(true);
+		Assertions.assertTrue(false);
 	}
 
 }
