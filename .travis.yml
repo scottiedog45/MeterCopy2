@@ -8,7 +8,7 @@ jdk: oraclejdk8
 script: bash scripts/test.sh
 
 before_install:
-  - gradle wrapper --gradle-version 6.0.1 --distribution-type all
+  - gradle wrapper --gradle-version 6.0.1 --distribution-type all --debug
 
 install: true
 
