@@ -12,11 +12,12 @@ before_install:
   - echo $PATH
   - rm -f  $HOME/.gradle/caches
   - gradle -v --debug
-
-  - gradle wrapper --gradle-version 6.0.1 --distribution-type all --debug
+  - wget http://services.gradle.org/distributions/gradle-6.0.1-bin.zip
+  - unzip -qq gradle-6.0.1-bin.zip
   - export GRADLE_HOME=$PWD/gradle-6.0.1
   - export PATH=$GRADLE_HOME/bin:$PATH
   - echo $PATH
+  - gradle -v --debug
 
 install: true
 
