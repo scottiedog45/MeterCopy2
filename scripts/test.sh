@@ -1,3 +1,3 @@
 
-# ./gradlew -v
-# ./gradlew build --scan -s
+./gradlew -v
+./gradlew build --scan -s
